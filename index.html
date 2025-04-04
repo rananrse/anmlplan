@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Excel Processor</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            background-image: url("../static/Backgroundplanner.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            margin-left: 200px;
+            margin-right: 150px;
+            color: aliceblue;
+        }
+
+        .container {
+            background-color: transparent;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        input[type="file"] {
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .info {
+            margin-top: 200px;
+            text-align: left;
+        }
+
+        .info p {
+            margin : 5px 0;
+        }
+
+        .info strong {
+            font-weight: bold;
+            font-size: larger;
+            color: #f5f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Loading month prediction :  Upload CXO File</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <br>
+            <input type="submit" value="Upload">
+        </form>
+    </div>
+
+    <div class="info">
+
+        {%if loading_month%}
+        <p><strong>Product code:</strong> {{product_code}}</p>
+        <p><strong>Loading month:</strong> {{loading_month}}</p>
+        {% endif%}
+
+    </div>
+
+</body>
+</html>
